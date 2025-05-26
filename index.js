@@ -12,6 +12,10 @@ app.use(express.json());
 
 const functionsDir = path.resolve('./functions');
 
+app.get('/', (req, res) => {
+  res.send('✅ Function server is up');
+});
+
 // Secure API gateway
 app.all('/:func', async (req, res) => {
   const authHeader = req.headers['authorization'] || '';
